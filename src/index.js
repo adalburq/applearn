@@ -1,17 +1,21 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import App from './pages/App';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
+// Warning ao usar ReactDOM.render   (ver por F12 no browser) 
+// react-dom.development.js:86 Warning: 
+// ReactDOM.render is no longer supported in React 18.  <===
+// Use createRoot instead. Until you switch to the new API, your app will behave as if it's running React 17. 
+// Learn more: https://reactjs.org/link/switch-to-createroot
+
+ReactDOM.render(
   <React.StrictMode>
     <App />
-  </React.StrictMode>
+  </React.StrictMode>,
+  document.getElementById('root')
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// Download the React DevTools for a better development experience: 
+//    https://reactjs.org/link/react-devtools
+
