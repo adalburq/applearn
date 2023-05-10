@@ -1,25 +1,26 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 function Hooks11() {
 
     const [repositorio, setRepositorio] = useState([]);
-    const [gitrepo, setGitrepo] = useState(['feedwidget']);
+    //const [gitrepo, setGitrepo] = useState(['feedwidget']);
 
     useEffect(() => {
         async function carregaRepositorios() {
-            const resposta = await fetch('https://api.github.com/users/julio-cesar96/repos');
-            const repositorios = await resposta.json();
+            const resposta = await axios('https://api.github.com/users/julio-cesar96/repos');
+            //const repositorios = await resposta.json();
             //return repositorios;
-            setRepositorio(repositorios);            
+            setRepositorio(resposta.data);            
         }
         carregaRepositorios();
     }, []);
 
     return (
         <ul>
-        {repositorio.map(gitrepository => (
-          <li key={gitrepository.id}>
-            {gitrepository.name}
+        {repositorio.map( repository => (
+          <li key={repository.id}>
+            {repository.name}
           </li>
         ))}
       </ul>

@@ -12,26 +12,30 @@ export default function Form10() {
   
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-
-      <input type="text" placeholder="First name" {...register("FirstName", {required: true, minLength: 5, maxLength: 11})} />
-      {errors.FirstName && <p>Preencha seu primeiro nome!</p>}
-
+      <div>
+        <input type="text" placeholder="First name" {...register("FirstName", {required: true, minLength: 5, maxLength: 11})} />
+        {errors.FirstName && <p>Preencha seu primeiro nome!</p>}
+      </div>
+      <div>
       <input type="text" placeholder="Last name" {...register("LastName", {required: true, maxLength: 100})} />
       {errors.LastName && <p>Preencha seu sobrenome!</p>}
-
+      </div>
+      <div>
       <input type="text" placeholder="Email" {...register("Email", {required: true, pattern: /^\S+@\S+$/i})} />
       {errors.Email && <p>Preencha um e-mail válido!</p>}
-
+      </div>
+      <div>
       <input type="tel" placeholder="Mobile number" {...register("MobileNumber", {required: true, minLength: 6, maxLength: 12})} />
       {errors.MobileNumber && <p>Preencha um telefone válido com DDD!</p>}
-
-      <select {...register("Title", { required: true })}>
-        <option value="Mr">Mr</option>
-        <option value="Mrs">Mrs</option>
-        <option value="Miss">Miss</option>
-        <option value="Dr">Dr</option>
-      </select>
-
+      </div>
+      <div>
+        <select {...register("Title", { required: true })}>
+          <option value="Mr">Mr</option>
+          <option value="Mrs">Mrs</option>
+          <option value="Miss">Miss</option>
+          <option value="Dr">Dr</option>
+        </select>
+      </div>
       <div>
         <label>Developer</label>
         <input {...register("Developer", { required: true })} type="radio" value="Yes" />
