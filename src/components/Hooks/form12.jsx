@@ -4,7 +4,7 @@ import React, { useState } from "react";
 export default function Form12() {
   const [state, setState] = useState({
     email: "",
-    password: ""
+    password: "" 
   });
 
   const handleInputChange = (event) => {
